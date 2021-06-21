@@ -1,5 +1,4 @@
 name: Context
-
 on: push
 
 jobs:
