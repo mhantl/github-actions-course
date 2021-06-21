@@ -2,6 +2,15 @@ name: Context
 on: [push]
 
 jobs:
+  functions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sump
+        run: |
+          echo ${{ contains('Hello', 'll') }}
+          echo ${{ startsWith('hello', 'he') }}
+          echo ${{ endWith("Hello", 'lo') }}
+          echo ${{ format('Hello {0}{1} - {2}', "World", "!", '!!!' ) }}
   one:
     runs-on: ubuntu-latest
     steps:
