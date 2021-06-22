@@ -8,7 +8,6 @@ jobs:
         os: [ubuntu-latest, windows-latest ]
         node-version: [8,10]
       max-parallel: 2  
-      fail-fast: true
     runs-on: ${{ matrix.os }}
     steps:
       - name: Log node version
