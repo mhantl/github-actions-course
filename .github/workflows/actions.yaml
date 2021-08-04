@@ -1,7 +1,11 @@
 name: Actions Workflow
 
 on:
-  push:
+  repository_dispatch:
+    types: [build, buildA]
+ # [push]
+ # schedule:
+ #   - cron: "0/5 * * * *"
   pull_request:
     types: [closed, assigned, opened, reopened]
 
@@ -10,6 +14,8 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: payload_from_repository_dispatch
+        run: echo ${{ github.event.client_payload.env }}
       - name: List Files
         run: |
           pwd
@@ -33,3 +39,11 @@ jobs:
           who-to-greet: Miloslav
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
+  slack-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Message about build
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"Hello, World! - has sent from Milos GitHub actions"}' \
+          ${{ secrets.SLACK_WEBHOOK }}
