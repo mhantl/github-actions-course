@@ -1,0 +1,31 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  functions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dump
+        run: |
+          echo ${{ contains('Hello', 'll') }}
+  one:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        if: failure()
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"  
+      - name: slack-message with issue
+        if: failure()
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"Hello there was issue! - has sent from Milos GitHub actions CI"}' \
+          ${{ secrets.SLACK_WEBHOOK }}
