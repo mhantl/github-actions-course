@@ -44,6 +44,6 @@ jobs:
     steps:
       - name: Slack Message about build
         run: |
-          curl -X POST -H 'Content-type: application/json'
-          --data '{"text":"Hello, World! - has sent from Milos\' GitHub actions"}'
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"Hello, World! - has sent from Milos GitHub actions"}' \
           ${{ secrets.SLACK_WEBHOOK }}
