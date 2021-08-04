@@ -19,10 +19,10 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: slack message with issue
-        #if: failure() == 'false'
+        if: failure()
         env:
           JOB_CONTEXT: ${{ toJSON(job) }}
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"Hello there was issue! - has sent from Milos GitHub actions CI"}' \
+          --data '{"text":"Hello there was another one issue! - has sent from Milos GitHub actions CI"}' \
           ${{ secrets.SLACK_WEBHOOK }}
