@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - name: Create Issue on GitHub Repos
+      - name: Create Issue on GitHub Repos ppppp
         run: |
           curl --request POST \
           --url https://api.github.com/repos/${{ github.repository }}/issues \
