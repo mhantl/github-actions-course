@@ -11,7 +11,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: slack message with issue
-        if: failure() == 'false'
+        #if: failure() == 'false'
         env:
           JOB_CONTEXT: ${{ toJSON(job) }}
         run: |
