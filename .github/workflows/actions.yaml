@@ -39,3 +39,11 @@ jobs:
           who-to-greet: Miloslav
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
+  slack-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Message about build
+        run: |
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":"Hello, World! - has sent from Milos\' GitHub actions"}'
+          {{ secrets.SLACK_WEBHOOK }}
