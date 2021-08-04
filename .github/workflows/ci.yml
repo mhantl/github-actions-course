@@ -6,6 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
+      - name: Create Issue on GitHub Repos
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --data '{ "title": "Automated issue for commit: ...", \
+          "body":"This was created by workflow and commit was: _${{ github.sha}}_."', \
+          "assifnes": ["${{github.event.pull_request.user.login }}"] }'
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
