@@ -24,3 +24,15 @@ jobs:
         run: |
           ls -la /opt/mule
           java -version
+  mule-docker-tnz:
+    runs-on: ubuntu-latest
+    container:
+      image: mhantl/mule-ce-poc:3.9.0
+      credentials:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_USER_PASSWORD }}
+    steps:
+      - name: Log Mule RT and Java version
+        run: |
+          ls -la /opt/mule
+          java -version          
