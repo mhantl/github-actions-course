@@ -12,3 +12,12 @@ jobs:
         run: |
           node -v
           cat /etc/os-release
+  mule-docker-teo:
+    runs-on: ubuntu-latest
+    container:
+      image: mhantl/mule-ce-poc:3.8.1
+    steps:
+      - name: Log Mule RT and Java version
+        run: |
+          ls -la /opt/mule
+          java -version
