@@ -18,7 +18,8 @@ jobs:
       image: mhantl/mule-ce-poc:3.8.1
       credentials:
         username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_USER_PASSWORD }}
+#        password: ${{ secrets.DOCKER_USER_PASSWORD }}
+        password: ${{ DOCKER_ACCESS_RWD_TOKEN }}
     steps:
       - name: Log Mule RT and Java version
         run: |
