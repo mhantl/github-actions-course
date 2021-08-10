@@ -33,7 +33,7 @@ public class FlowTest extends FunctionalMunitSuite {
 		MuleMessage muleMessage = muleMessageWithPayload(requestBody);
 
 		muleMessage.setProperty("http.request.uri",
-				"/xmlToJson2", PropertyScope.INBOUND);
+				"/xmlToJson3", PropertyScope.INBOUND);
 		
 //		muleMessage.setProperty("host",
 //				"0.0.0.0:8084", PropertyScope.INBOUND);

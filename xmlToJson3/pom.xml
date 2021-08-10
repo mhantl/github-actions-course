@@ -6,7 +6,7 @@
 	<artifactId>xmlToJson3</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule</packaging>
-	<name>Mule xmlToJson2 Application</name>
+	<name>Mule xmlToJson3 Application</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
