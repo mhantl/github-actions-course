@@ -8,6 +8,7 @@
 ![Badge for Maven](https://github.com/mhantl/github-actions-course/actions/workflows/maven.yml/badge.svg)
 ![Badge for Simple](https://github.com/mhantl/github-actions-course/actions/workflows/simple.yaml/badge.svg)
 ![Badge for GitHubAction Course](https://github.com/mhantl/github-actions-course/actions/workflows/maven.yml/badge.svg)
+![Badge for Share data between jobs](https://github.com/mhantl/github-actions-course/actions/workflows/sharedatabetweenjobs.yml/badge.svg)
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main)
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
